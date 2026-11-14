@@ -1,6 +1,6 @@
 version: "1"
 kind: miner
-id: sanctions-screening-miner
+id: 84392
 slug: kimutai-sanctions-screener
 protocol: generic
 name: Sanctions & Watchlist Screening Miner
