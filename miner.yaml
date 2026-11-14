@@ -1,0 +1,36 @@
+version: "1"
+kind: miner
+slug: kimutai-sanctions-screener
+protocol: generic
+name: Sanctions & Watchlist Screening Miner
+description: >
+  Deterministic AML/KYC sanctions screening and false-positive disambiguation engine
+  for OFAC, UN, and EU watchlists. Evaluates name similarity, transliterations,
+  corporate suffixes, dates of birth, and jurisdiction alignment.
+base_url: https://YOUR_DEPLOYED_HTTPS_URL
+min_price_usdc: "0.01"
+endpoints:
+  - path: /screen
+    method: POST
+    intents:
+      - SANCTIONS_SCREENING_MATCH_GENERAL
+    description: Screen a target individual or organization against a sanctions watchlist entry.
+    request_schema:
+      type: object
+      required:
+        - prompt
+      properties:
+        prompt:
+          type: string
+          description: Sanctions screening prompt comparing target entity attributes against watchlist entry.
+    response_schema:
+      type: object
+      properties:
+        verdict:
+          type: string
+        risk_level:
+          type: string
+        confidence:
+          type: number
+        analysis:
+          type: string
