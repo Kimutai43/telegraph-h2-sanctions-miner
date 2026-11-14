@@ -8,6 +8,9 @@ description: >
   Deterministic AML/KYC sanctions screening and false-positive disambiguation engine
   for OFAC, UN, and EU watchlists.
 base_url: https://telegraph-h2-sanctions-miner.onrender.com
+semantics:
+  supported_intents:
+    - SANCTIONS_SCREENING_MATCH_GENERAL
 endpoints:
   - path: /screen
     external_path: /screen
